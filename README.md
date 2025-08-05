@@ -59,3 +59,19 @@ SELECT DATEPART(HOUR, created_at) FROM visas) AS all_booking
 GROUP BY hour_of_day
 ORDER BY total_bookings 
 ```
+
+### ✅ Answer:
+
+After analyzing all booking tables and aggregating data by hour, we found that the majority of bookings occur between **14:00 and 14:59 (2 PM – 3 PM)**.
+
+To better understand customer behavior, we grouped booking hours into custom parts of the day:
+
+- **Early Morning** → 00:00–05:59  
+- **Morning** → 06:00–11:59  
+- **Afternoon** → 12:00–17:59  
+- **Evening** → 18:00–21:59  
+- **Night** → 22:00–23:59
+
+Based on this, we conclude:
+
+> 📈 **Most bookings are made during the afternoon**, with 2 PM being the peak booking hour across all services.
