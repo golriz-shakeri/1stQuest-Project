@@ -1,4 +1,10 @@
 # 1stQuest Travel Data Analysis Project
+<br><br>
+<p align= "center">
+  <img src="1stquest_logo_black.svg" alt="1stQuest Logo" width="400" height="100">
+</p>
+<br><br>
+
 
 **Author:** Golriz Shakeri  
 **Date:** 04 August 2025  
