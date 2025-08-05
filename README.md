@@ -24,15 +24,16 @@ This portfolio project analyzes booking patterns across multiple travel-related 
 - Excel (pre-cleaning)
 - GitHub for version control & documentation
 
+## 📌 Question 1: During What Hours Are Most Bookings Made?
+
+In this query, I extracted the **hour** from the `created_at` timestamps across all booking-related tables using the `DATEPART(HOUR, created_at)` function. Then, I combined the results using `UNION ALL` to include all bookings regardless of type (experiences, hotels, insurances, pickups, visas, transportations, manual bookings).
+
+Finally, I grouped the data by `hour_of_day` and counted total bookings for each hour to identify peak booking hours.
+
+### 🧠 SQL Query:
 
 
 
-
-
-
-In this project we are analyzing the booking trends
-
-1st Question:
 ```sql
 SELECT hour_of_day, COUNT (*) AS total_bookings
 FROM(
