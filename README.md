@@ -1,4 +1,34 @@
-# 1stQuest-Project
+# 1stQuest Travel Data Analysis Project
+
+**Author:** Golriz Shakeri  
+**Date:** 04 August 2025  
+
+This portfolio project analyzes booking patterns across multiple travel-related datasets (Experiences, Hotels, Pickups, Visas, Insurances, Transportations, and Manual Bookings) to answer business questions using SQL and Tableau. The goal is to showcase advanced data manipulation and storytelling skills using real-world data.
+
+---
+
+## 📌 Business Questions
+
+1. **When are most of our bookings made?** (Night or day? What times?)
+2. **Which weekdays have the most bookings?**
+3. **What percentage of bookings occur on Thursdays and Fridays?**
+4. **Which hotels are most booked by Chinese and Russian users?**
+5. **Which hotel types are booked by tourists vs. business travelers?**
+
+---
+
+## 🛠 Tools Used
+
+- SQL Server (SSMS)
+- Tableau
+- Excel (pre-cleaning)
+- GitHub for version control & documentation
+
+
+
+
+
+
 
 In this project we are analyzing the booking trends
 
