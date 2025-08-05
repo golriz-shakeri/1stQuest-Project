@@ -3,6 +3,7 @@
 In this project we are analyzing the booking trends
 
 1st Question:
+```sql
 SELECT hour_of_day, COUNT (*) AS total_bookings
 FROM(
 SELECT DATEPART(HOUR, created_at) AS hour_of_day FROM experience_bookings
@@ -19,4 +20,5 @@ SELECT DATEPART(HOUR, created_at) FROM transportations
 UNION ALL
 SELECT DATEPART(HOUR, created_at) FROM visas) AS all_booking
 GROUP BY hour_of_day
-ORDER BY total_bookings DESC
+ORDER BY total_bookings 
+```
