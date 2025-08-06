@@ -75,3 +75,68 @@ To better understand customer behavior, we grouped booking hours into custom par
 Based on this, we conclude:
 
 > 📈 **Most bookings are made during the afternoon**, with 2 PM being the peak booking hour across all services.
+
+## 📊 Question 2: Which day of the week are most of our bookings made?
+
+### 🧠 Explanation:
+
+To determine which weekday users are most likely to book services, I extracted the `created_at` timestamps from all 7 booking-related datasets:
+
+- `experience_bookings`  
+- `hotel_bookings`  
+- `manual_bookings`  
+- `pickup_bookings`  
+- `transportations`  
+- `visas`  
+- `insurances`
+
+Using the SQL function `DATENAME(WEEKDAY, created_at)`, I extracted the **name of the weekday** (e.g., Monday, Tuesday) from each timestamp. Then I grouped the bookings by weekday and counted them to find which days had the highest activity.
+
+---
+
+### 💻 SQL Code:
+
+```sql
+SELECT 
+  DATENAME(WEEKDAY, created_at) AS weekday,
+  COUNT(*) AS total_bookings
+FROM (
+    SELECT created_at FROM experience_bookings WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM hotel_bookings WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM manual_bookings WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM pickup_bookings WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM transportations WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM visas WHERE created_at IS NOT NULL
+    UNION ALL
+    SELECT created_at FROM insurances WHERE created_at IS NOT NULL
+) AS all_bookings
+GROUP BY DATENAME(WEEKDAY, created_at)
+ORDER BY total_bookings DESC;
+```
+
+---
+
+### ✅ Answer:
+
+After aggregating data from all booking tables, we found that:
+
+> 📅 **Tuesday** is the most popular booking day, with the highest number of bookings across all services.
+
+#### 🔢 Bookings by weekday:
+
+| Weekday     | Total Bookings |
+|-------------|----------------|
+| Tuesday     | 5,567          |
+| Monday      | 5,350          |
+| Wednesday   | 4,900          |
+| Thursday    | 4,740          |
+| Sunday      | 4,706          |
+| Saturday    | 3,869          |
+| Friday      | 3,299          |
+
+
