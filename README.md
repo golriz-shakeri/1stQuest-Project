@@ -1,4 +1,4 @@
-# 1stQuest Travel Data Analysis Project
+# 1stQuest Data Analysis Project
 <br><br>
 <p align= "center">
   <img src="1stquest_logo_black.svg" alt="1stQuest Logo" width="400" height="100">
