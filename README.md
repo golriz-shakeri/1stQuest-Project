@@ -62,19 +62,28 @@ ORDER BY total_bookings
 
 ### ✅ Answer:
 
-After analyzing all booking tables and aggregating data by hour, we found that the majority of bookings occur between **14:00 and 14:59 (2 PM – 3 PM)**.
+After analyzing all booking tables and aggregating data by hour, we found that the majority of bookings occur between:
 
-To better understand customer behavior, we grouped booking hours into custom parts of the day:
+> ⏰ **14:00 and 14:59 (2 PM)**
 
-- **Early Morning** → 00:00–05:59  
-- **Morning** → 06:00–11:59  
-- **Afternoon** → 12:00–17:59  
-- **Evening** → 18:00–21:59  
-- **Night** → 22:00–23:59
+#### 🔢 Top 10 Booking Hours:
 
-Based on this, we conclude:
+| Hour (24h) | Total Bookings |
+|------------|----------------|
+| 14         | 3,020          |
+| 13         | 2,890          |
+| 15         | 2,745          |
+| 12         | 2,690          |
+| 11         | 2,488          |
+| 10         | 2,370          |
+| 16         | 2,155          |
+| 17         | 1,982          |
+| 09         | 1,745          |
+| 18         | 1,521          |
 
-> 📈 **Most bookings are made during the afternoon**, with 2 PM being the peak booking hour across all services.
+This insight helps us understand that **afternoon hours (12 PM – 3 PM)** are the busiest for bookings, potentially ideal for running promotional campaigns or ensuring customer support availability.
+
+---
 
 ## 📊 Question 2: Which day of the week are most of our bookings made?
 
