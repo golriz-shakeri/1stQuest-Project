@@ -149,3 +149,63 @@ After aggregating data from all booking tables, we found that:
 | Friday      | 3,299          |
 
 
+
+## 📅 Question 3: What percentage of our bookings are made on Thursdays and Fridays?
+
+### 🧠 Explanation:
+
+This SQL query shows what percent of total bookings happen on **Thursdays and Fridays**, across all booking services.
+
+Steps:
+1. ✅ Combine all booking timestamps from 7 different datasets.
+2. 📆 Use `DATENAME(WEEKDAY, created_at)` to extract the weekday name.
+3. 🔢 Count total bookings for each weekday.
+4. 📊 Divide Thursday and Friday counts by the total bookings and convert to a percentage.
+
+This is helpful for identifying booking spikes near the weekend.
+
+---
+
+### 💻 SQL Code:
+
+<pre lang="sql">
+-- Step-by-step clean query using CTEs
+
+WITH all_bookings AS (
+  SELECT created_at FROM experience_bookings
+  UNION ALL SELECT created_at FROM hotel_bookings
+  UNION ALL SELECT created_at FROM manual_bookings
+  UNION ALL SELECT created_at FROM pickup_bookings
+  UNION ALL SELECT created_at FROM transportations
+  UNION ALL SELECT created_at FROM visas
+  UNION ALL SELECT created_at FROM insurances
+),
+weekday_totals AS (
+  SELECT 
+    DATENAME(WEEKDAY, created_at) AS weekday,
+    COUNT(*) AS total_bookings
+  FROM all_bookings
+  GROUP BY DATENAME(WEEKDAY, created_at)
+),
+total_bookings AS (
+  SELECT COUNT(*) AS grand_total FROM all_bookings
+)
+SELECT 
+  weekday,
+  total_bookings,
+  ROUND(CAST(total_bookings AS FLOAT) / grand_total * 100, 2) AS percentage
+FROM weekday_totals, total_bookings
+WHERE weekday IN ('Thursday', 'Friday')
+ORDER BY percentage DESC;
+</pre>
+
+---
+
+### ✅ Answer:
+
+| Weekday  | Total Bookings | Percentage |
+|----------|----------------|------------|
+| Thursday | 4,740          | 14.62%     |
+| Friday   | 3,299          | 10.17%     |
+
+📌 **Total: 24.79% of bookings happen on Thursdays and Fridays**
