@@ -169,7 +169,7 @@ This is helpful for identifying booking spikes near the weekend.
 ### 💻 SQL Code:
 
 <pre lang="sql">
--- Step-by-step clean query using CTEs
+
 
 WITH all_bookings AS (
   SELECT created_at FROM experience_bookings
